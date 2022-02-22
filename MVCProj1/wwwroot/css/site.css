@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans&display=swap');
+
+:root {
+    --bg-main: rgba(53, 12, 0, 0.5);
+    --btn-main: rgb(6, 66, 43)
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: 'Spline Sans', sans-serif;
+  background-color: var(--bg-main);
+}
+
+/*Forms*/
+
+.main-form {
+    display: grid;
+    margin: 0.5rem 2rem;
+}
+
+.form-heading {
+    margin-bottom: 0.25rem;
+}
+
+.form-entry {
+    border: none;
+    margin: 0rem;
+    margin-bottom: 0.5rem;
+    width: 20rem;
+}
+
+.form-error {
+    margin-bottom: 0.5rem;
+    color: rgb(42, 69, 22);
+}
+
+.reg-button {
+    margin-bottom: 0.5rem;
+    width: 5rem;
+    border-radius: 0.1rem;
+    border: none;
+}

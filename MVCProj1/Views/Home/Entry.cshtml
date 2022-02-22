@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Individual Database Entry";
+}
+
+@model Audio;
+
+@using (Html.BeginForm("Entry", "Home", FormMethod.Post, new {@class="main-form"}))
+{
+    <p class="form-heading">Title of Track:</p>
+    @Html.TextBoxFor(songEntry => songEntry.songName, null, new {@class="form-entry"})
+    @Html.ValidationMessageFor(songEntry => songEntry.songName, null, new {@class="form-error"})
+
+    <p class="form-heading">Link to Track:</p>
+    @Html.TextBoxFor(songEntry => songEntry.link, null, new {@class="form-entry"})
+    @Html.ValidationMessageFor(songEntry => songEntry.link, null, new {@class="form-error"})
+
+    <!--Play around with the TextBoxFor parameters (such as format string), and try copying the final HTML code from Firefox and manipulating that to get new error messages-->
+    <input type="submit" value="Finished" class="reg-button"/>
+
+    <p>@Html.DisplayTextFor(songEntry => songEntry.songName)</p>
+    
+    @if (@Html.DisplayTextFor(songEntry => songEntry.link) != "")
+        {
+            <a href="@ViewData["link"]">Link</a>
+        }
+}
+
+<!-- below is without HTML Helpers (Weakly typed)
+
+    the name attribute links to the correct attribute of the model, BUT it is not case sensitive.
+<form class="main-form" method="post" action="/Home/Entry">
+    <h3>Title:</h3>
+    <a href="https://www.aspsnippets.com/Articles/ASPNet-MVC-Form-Submit-Post-example.aspx">How to build this part 1</a>
+    <a href="https://www.completecsharptutorial.com/asp-net-mvc5/4-ways-to-create-form-in-asp-net-mvc.php">How to build this strongly typed</a>
+    
+    <input class="form-entry" type="text" placeholder="ex: Jiya Jale" name="songName"/>
+    <input type="submit" value="Finished"/>
+</form>
+-->
+

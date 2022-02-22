@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MVCProj1/1.0.0": {
+        "runtime": {
+          "MVCProj1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MVCProj1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
