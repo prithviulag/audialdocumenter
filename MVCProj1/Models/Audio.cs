@@ -4,11 +4,11 @@
     public class Audio
     {
         [Required(ErrorMessage = "A title is required.")]
-        public string SongName { get; set; }
+        public string? SongName { get; set; } //must be nullable for controller-level error messages to work
 
         [Required(ErrorMessage = "A link is required.")]
         [IsWorkingUrl(ErrorMessage = "Link must be valid.")]
-        public string SongLink { get; set; }
+        public string? SongLink { get; set; }
     }
     public class IsWorkingUrl : ValidationAttribute
     {
