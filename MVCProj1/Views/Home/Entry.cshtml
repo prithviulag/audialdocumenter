@@ -9,20 +9,23 @@
 
 @using (Html.BeginForm("Entry", "Home", FormMethod.Post, new {@class="main-form"}))
 {
-    <p class="form-heading">Title of Track:</p>
-    @Html.TextBoxFor(songEntry => songEntry.songName, null, new {@class="form-entry"})
-    @Html.ValidationMessageFor(songEntry => songEntry.songName, null, new {@class="form-error"})
+    @if(!Convert.ToBoolean(ViewData["validModel"])) //null-safe conversion
+    {
+        <p class="form-heading">Title of Track:</p>
+        @Html.TextBoxFor(songEntry => songEntry.SongName, null, new {@class="form-entry"})
+        @Html.ValidationMessageFor(songEntry => songEntry.SongName, null, new {@class="form-error"})
 
-    <p class="form-heading">Link to Track:</p>
-    @Html.TextBoxFor(songEntry => songEntry.link, null, new {@class="form-entry"})
-    @Html.ValidationMessageFor(songEntry => songEntry.link, null, new {@class="form-error"})
+        <p class="form-heading">Link to Track:</p>
+        @Html.TextBoxFor(songEntry => songEntry.SongLink, null, new {@class="form-entry"})
+        @Html.ValidationMessageFor(songEntry => songEntry.SongLink, null, new {@class="form-error"})
 
-    <!--Play around with the TextBoxFor parameters (such as format string), and try copying the final HTML code from Firefox and manipulating that to get new error messages-->
-    <input type="submit" value="Finished" class="reg-button"/>
+        <!--Play around with the TextBoxFor parameters (such as format string), and try copying the final HTML code from Firefox and manipulating that to get new error messages-->
+        <input type="submit" value="Finished" class="reg-button"/>
+    }
 
-    <p>@Html.DisplayTextFor(songEntry => songEntry.songName)</p>
+    <p>@Html.DisplayTextFor(songEntry => songEntry.SongName)</p>
     
-    @if (@Html.DisplayTextFor(songEntry => songEntry.link) != "")
+    @if (@Html.DisplayTextFor(songEntry => songEntry.SongLink) != "")
         {
             <a href="@ViewData["link"]">Link</a>
         }

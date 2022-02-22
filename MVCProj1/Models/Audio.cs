@@ -4,11 +4,11 @@
     public class Audio
     {
         [Required(ErrorMessage = "A title is required.")]
-        public string songName { get; set; }
+        public string SongName { get; set; }
 
         [Required(ErrorMessage = "A link is required.")]
         [IsWorkingUrl(ErrorMessage = "Link must be valid.")]
-        public string link { get; set; }
+        public string SongLink { get; set; }
     }
     public class IsWorkingUrl : ValidationAttribute
     {

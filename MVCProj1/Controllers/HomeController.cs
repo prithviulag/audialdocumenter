@@ -34,9 +34,11 @@ namespace MVCProj1.Controllers
         {
             if (ModelState.IsValid) //need to succeed in this in order for data to pass to view
             {
-                ViewData["songTitle"] = song.songName;
-                ViewData["link"] = Uri.IsWellFormedUriString(song.link, UriKind.Absolute) ?
-                    song.link : "https://" + song.link;
+                ViewData["songTitle"] = song.SongName;
+                ViewData["link"] = Uri.IsWellFormedUriString(song.SongLink, UriKind.Absolute) ?
+                    song.SongLink : "https://" + song.SongLink;
+
+                ViewData["validModel"] = true; //removes form from view
 
                 return View(song);
             }
