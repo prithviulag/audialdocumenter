@@ -2,7 +2,10 @@
 
 :root {
     --bg-main: rgba(53, 12, 0, 0.5);
-    --btn-main: rgb(6, 66, 43)
+    --btn-main: rgb(6, 66, 43);
+    --top-main: #73d3cd72;
+    --top-second: #73d3cd;
+    --highlight: rgb(42, 69, 22);
 }
 
 html {
@@ -37,6 +40,11 @@ body {
     margin-bottom: 0.25rem;
 }
 
+.form-bodytext {
+    margin-left: 1rem;
+    color: var(--highlight);
+}
+
 .form-entry {
     border: none;
     margin: 0rem;
@@ -46,7 +54,7 @@ body {
 
 .form-error {
     margin-bottom: 0.5rem;
-    color: rgb(42, 69, 22);
+    color: var(--highlight);
 }
 
 .reg-button {
@@ -54,4 +62,9 @@ body {
     width: 5rem;
     border-radius: 0.1rem;
     border: none;
+}
+
+.form-link {
+    color: var(--top-second);
+    margin-bottom: 0.5rem;
 }

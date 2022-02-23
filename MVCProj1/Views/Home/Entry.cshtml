@@ -13,22 +13,34 @@
     {
         <p class="form-heading">Title of Track:</p>
         @Html.TextBoxFor(songEntry => songEntry.SongName, null, new {@class="form-entry"})
-        @Html.ValidationMessageFor(songEntry => songEntry.SongName, null, new {@class="form-error"})
+        @Html.ValidationMessageFor(s => s.SongName, null, new {@class="form-error"})
+        //lambda variable name can be anything.
 
         <p class="form-heading">Link to Track:</p>
         @Html.TextBoxFor(songEntry => songEntry.SongLink, null, new {@class="form-entry"})
         @Html.ValidationMessageFor(songEntry => songEntry.SongLink, null, new {@class="form-error"})
 
+        <p class="form-heading">Add Notes:</p>
+        <a class="form-link" href="https://stackoverflow.com/questions/42966789/html-checkboxfor-to-toggle-button-html">How to link this properly</a>
+        //Use this link and jQuery to create a CheckBoxFor that toggles this field
+        @Html.TextAreaFor(songEntry => songEntry.Notes, 4, 50, new {@class="form-entry"})
+
         <!--Play around with the TextBoxFor parameters (such as format string), and try copying the final HTML code from Firefox and manipulating that to get new error messages-->
         <input type="submit" value="Finished" class="reg-button"/>
     }
 
-    <p>@Html.DisplayTextFor(songEntry => songEntry.SongName)</p>
+    <p class="form-heading">@ViewData["songTitle"]</p>
     
     @if (@Html.DisplayTextFor(songEntry => songEntry.SongLink) != "")
         {
-            <a href="@ViewData["link"]">Link</a>
+            <a class="form-link" href="@ViewData["link"]">Link</a>
         }
+
+    @if (@Convert.ToBoolean(ViewData["notesPresent"]))
+    {
+        <p class="form-heading">Notes:</p>
+        <p class="form-bodytext">@ViewData["notes"]</p>
+    }
 }
 
 <!-- below is without HTML Helpers (Weakly typed)

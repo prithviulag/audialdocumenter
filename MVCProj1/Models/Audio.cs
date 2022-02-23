@@ -9,6 +9,7 @@
         [Required(ErrorMessage = "A link is required.")]
         [IsWorkingUrl(ErrorMessage = "Link must be valid.")]
         public string? SongLink { get; set; }
+        public string? Notes { get; set; }
     }
     public class IsWorkingUrl : ValidationAttribute
     {

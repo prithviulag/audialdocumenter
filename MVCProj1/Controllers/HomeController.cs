@@ -37,6 +37,8 @@ namespace MVCProj1.Controllers
                 ViewData["songTitle"] = song.SongName;
                 ViewData["link"] = Uri.IsWellFormedUriString(song.SongLink, UriKind.Absolute) ?
                     song.SongLink : "https://" + song.SongLink;
+                ViewData["notes"] = song.Notes;
+                ViewData["notesPresent"] = !String.IsNullOrEmpty(song.Notes);
 
                 ViewData["validModel"] = true; //removes form from view
 
