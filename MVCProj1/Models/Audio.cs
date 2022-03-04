@@ -10,6 +10,7 @@
         [IsWorkingUrl(ErrorMessage = "Link must be valid.")]
         public string? SongLink { get; set; }
         public string? Notes { get; set; }
+        //public bool HasNotes { get; set; }
     }
     public class IsWorkingUrl : ValidationAttribute
     {
@@ -18,7 +19,7 @@
 
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-            string v = Convert.ToString(value);
+            string? v = Convert.ToString(value);
             return (Uri.IsWellFormedUriString(v, UriKind.Absolute)
                 || Uri.IsWellFormedUriString("https://" + v, UriKind.Absolute))
                 && !new List<int> { -1, v.Length - 1, v.Length - 2 }.Contains(v.IndexOf('.')) ?

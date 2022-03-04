@@ -21,6 +21,7 @@
         @Html.ValidationMessageFor(songEntry => songEntry.SongLink, null, new {@class="form-error"})
 
         <p class="form-heading">Add Notes:</p>
+        //@Html.CheckBoxFor(songEntry => songEntry.HasNotes);
         <a class="form-link" href="https://stackoverflow.com/questions/42966789/html-checkboxfor-to-toggle-button-html">How to link this properly</a>
         //Use this link and jQuery to create a CheckBoxFor that toggles this field
         @Html.TextAreaFor(songEntry => songEntry.Notes, 4, 50, new {@class="form-entry"})
